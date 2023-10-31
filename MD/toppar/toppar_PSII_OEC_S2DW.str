@@ -1,0 +1,155 @@
+! Topologies written by Jinchan Liu (jinchan.liu09@gmail.com) for the
+! OEC complex in PSII at S2DW state
+! Please cite the following paper if you use this file:
+!
+
+! This file includes the topology for the OEC at S2DW state
+! and also the patches required to bond the OEC to the amino acids
+
+! The charges of atoms in this file are adapted from the Mulliken charge
+! from our QMMM calculations, with modifications made to sum up the charge
+! of OEC and its amino acid ligand to integer
+
+!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTES !!!!!!!!!!!!!!!!!!!!!!!!
+! Auto generate angle / dehidrals before using this file and    !
+! DON'T auto generate angle / dehidrals after using this file   !
+! When you use the patches to bond Mn and amino acids,          !
+! apply patches in the order of this file                       !
+! Load toppar_PSII_OEC.str too before you load this file	!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+MASS -1 HX  1.00800
+MASS -1 OX  15.99900
+
+RESI S2DW          3.325 ! Don't auto generate angle / dehidrals after this
+ATOM MN1  MN1      1.092 !
+ATOM MN2  MN2      1.511
+ATOM MN3  MN3      1.657
+ATOM MN4  MN4      1.893
+ATOM CA1  CAL      1.817
+ATOM O1   OXO1    -0.816
+ATOM O2   OXO2    -0.779
+ATOM O3   OXO3    -0.793
+ATOM O4   OXO4    -0.842
+ATOM O5   OXO5    -0.692
+ATOM O6   OXO6    -1.005
+ATOM HO6  HXO6     0.339
+
+BOND MN1 O1 MN1 O3 MN1 O5
+BOND MN2 O1 MN2 O2 MN2 O3
+BOND MN3 O2 MN3 O3 MN3 O4 Mn3 O5
+BOND MN4 O4 MN4 O6 O6 HO6
+BOND CA1 O1 CA1 O2 CA1 O5 CA1 O6
+
+ANGL O1 MN1 O3 O1 MN1 O5 O3 MN1 O5
+ANGL O1 MN2 O2 O1 MN2 O3 O2 MN2 O3
+ANGL O2 MN3 O3 O2 MN3 O4 O2 MN3 O5
+ANGL O3 MN3 O4 O3 MN3 O5 O4 MN3 O5
+ANGL O4 MN4 O6 MN4 O6 HO6
+ANGL O1 CA1 O2 O1 CA1 O5 O2 CA1 O5
+ANGL MN1 O1 MN2 MN1 O1 CA1 MN2 O1 CA1
+ANGL MN2 O2 MN3 MN2 O2 CA1 MN3 O2 CA1
+ANGL MN1 O3 MN2 MN1 O3 MN3 MN2 O3 MN3
+ANGL MN3 O4 Mn4 MN1 O5 MN3
+IMPR O4 Mn4 O6 HO6
+
+!APPLY THESE PATCHES IN ORDER
+
+
+PRES S2DWMN1             ! 1-OEC 2-A_E189(-1.0) 3-A_D342(-1.0) 4-A_H332(0.0)
+ATOM 2CG  CT2     -0.305 ! -0.28
+ATOM 2HG1 HA2      0.090 !
+ATOM 2HG2 HA2      0.090 !                        1O3   1O5
+ATOM 2CD  CC       0.931 !  0.62                     \ /
+ATOM 2OE1 OCO1    -0.791 ! -0.76       (H332)4NE2---1MN1---1O1
+ATOM 2OE2 OCO2    -0.616 ! -0.76                     / \
+ATOM 3CB  CT2A    -0.302 ! -0.28           (D342)2OD2   1OE2(E189)
+ATOM 3HB1 HA2      0.090 !
+ATOM 3HB2 HA2      0.090 !
+ATOM 3CG  CC       0.914 !  0.62
+ATOM 3OD1 OCO3    -0.661 ! -0.76
+ATOM 3OD2 OCO4    -0.675 ! -0.76
+ATOM 4ND1 NR1     -0.398 !
+ATOM 4HD1 H        0.354 !  0.32
+ATOM 4CG  CPH1     0.364 !  0.05
+ATOM 4CE1 CPH2     0.059 !  0.25
+ATOM 4HE1 HR1      0.172 !  0.13
+ATOM 4NE2 NR2     -0.139 ! -0.70
+ATOM 4CD2 CPH1    -0.298 !  0.22
+ATOM 4HD2 HR3      0.204 !  0.10
+
+BOND 1MN1 2OE2  1MN1 3OD2 1MN1  4NE2
+
+ANGL 2OE2 1MN1 1O1   2OE2 1MN1 1O3   2OE2 1MN1 3OD2   2OE2 1MN1 4NE2
+ANGL 3OD2 1MN1 1O1   3OD2 1MN1 1O3   3OD2 1MN1 4NE2
+ANGL 4NE2 1MN1 1O1   4NE2 1MN1 1O3
+ANGL 1MN1 2OE2 2CD   1MN1 3OD2 3CG
+
+
+
+PRES S2DWMN2               ! 1-OEC 2-C_E354(-1.0) 3-A_D342(-1.0) 4-A_A344(-1.0)
+ATOM 2CG   CT2    -0.268 ! -0.28 
+ATOM 2HG1  HA2     0.090 !                      1O2  1O3
+ATOM 2HG2  HA2     0.090 !                         \ /
+ATOM 2CD   CC      0.861 !  0.62            1O1---1MN2---2OE1(E354)
+ATOM 2OE1  OCO5   -0.643 ! -0.76                   / \
+ATOM 2OE2  OCO6   -0.646 ! -0.76         (A344)4OT1   3OD1(D342)
+ATOM 4CA   CT1     0.022 !  0.07
+ATOM 4HA   HB1     0.060 !  0.09
+ATOM 4C    CC      0.734 !  0.34
+ATOM 4OT1  OCO7   -0.622 ! -0.67
+ATOM 4OT2  OCO8   -0.657 ! -0.67
+
+BOND 1MN2 2OE1  1MN2 3OD1  1MN2 4OT1
+
+ANGL 2OE1 1MN2 1O1   2OE1 1MN2 1O2   2OE1 1MN2 1O3   2OE1 1MN2 3OD1   2OE1 1MN2 4OT1
+ANGL 3OD1 1MN2 1O1   3OD1 1MN2 1O2   3OD1 1MN2 1O3   3OD1 1MN2 4OT1
+ANGL 4OT1 1MN2 1O1   4OT1 1MN2 1O2   4OT1 1MN2 1O3
+ANGL 1MN2 2OE1 2CD   1MN2 3OD1 3CG   1MN2 4OT1 4C
+
+
+
+PRES S2DWMN3               ! 1-OEC 2-C_E354(-1.0) 3-A_E333(-1.0)
+ATOM 3CG   CT2    -0.287 ! -0.28
+ATOM 3HG1  HA2     0.090 !                     1O4  1O5
+ATOM 3HG2  HA2     0.090 !                        \ /
+ATOM 3CD   CC      0.971 !  0.62           1O2---1MN3---E333(OE1)
+ATOM 3OE1  OCO9   -0.715 ! -0.76                  / \
+ATOM 3OE2  OCO10  -0.815 ! -0.76         (E354)OE2   1O3
+
+BOND 1MN3 2OE2  1MN3 3OE1
+
+ANGL 2OE2 1MN3 1O2   2OE2 1MN3 1O3   2OE2 1MN3 1O4   2OE2 1MN3 1O5   2OE2 1MN3 3OE1
+ANGL 3OE1 1MN3 1O2   3OE1 1MN3 1O3   3OE1 1MN3 1O4   3OE1 1MN3 1O5
+ANGL 1MN3 2OE2 2CD   1MN3 3OE1 3CD
+
+
+PRES S2DWMN4               ! 1-OEC 2-A_D170(-1.0) 3-A_E333(-1.0)
+ATOM 2CB   CT2A   -0.352 ! -0.28 
+ATOM 2HB1  HA2     0.090 !                      W2   W1
+ATOM 2HB2  HA2     0.090 !                        \ /
+ATOM 2CG   CC      0.975 !  0.62     (D170)OD1---1MN4---OE2(E333)
+ATOM 2OD1  OCO11  -0.797 ! -0.76                  / \
+ATOM 2OD2  OCO12  -0.846 ! -0.76                O6   O4
+
+BOND 1MN4 2OD1  1MN4 3OE2
+
+ANGL 2OD1 1MN4 1O4   2OD1 1MN4 1O6   2OD1 1MN4 3OE2
+ANGL 3OE2 1MN4 1O4   3OE2 1MN4 1O6
+ANGL 1MN4 2OD1 2CG   1MN4 3OE2 3CD
+
+PRES S2DWCA1               ! 1-OEC 2-A_D170(-1.0)OD1 3-A_A344(-1.0)OT2 4-A_E189(-1.0)OE1
+!       1O2   2OD2(D170)
+!          \ /
+!    1O5---1CA1---3OT2(A344)
+!          / \
+!       1O1   4OE1(E189)
+!
+BOND 1CA1 2OD2  1CA1 3OT2  1CA1 4OE1
+
+ANGL 2OD2 1CA1 1O1   2OD2 1CA1 1O2   2OD2 1CA1 1O5  2OD2 1CA1 1O6 2OD2 1CA1 3OT2   2OD2 1CA1 4OE1
+ANGL 3OT2 1CA1 1O1   3OT2 1CA1 1O2   3OT2 1CA1 1O5  3OT2 1CA1 1O6 3OT2 1CA1 4OE1
+ANGL 4OE1 1CA1 1O1   4OE1 1CA1 1O2   4OE1 1CA1 1O5  4OE1 1CA1 1O6
+ANGL 1CA1 2OD2 2CG   1CA1 3OT2 3C    1CA1 4OE1 4CD
+

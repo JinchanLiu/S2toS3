@@ -1,0 +1,241 @@
+! Topologies written by Jinchan Liu (jinchan.liu09@gmail.com) according to
+! SQD atom names in 3wu2 Xray structure and atom types of charmm36
+! Please cite the following paper if you use this file:
+!
+
+RESI SQD            -1.00 !
+! This topology is for the SQDG solved in 3wu2
+! with atom names from 3wu2
+! and the atom types adapted from ENSA, AGLC, DPPA
+!
+!  R1 - CH2
+!       |
+!  R2 - CH
+!       |    
+!       CH2 - O - AGLC - SO3
+!
+GROU
+ATOM C1   CC3162    0.290  !                 O9
+ATOM H1   HCA1      0.090  !                 |
+ATOM O6   OC301    -0.360  !            O7---S---O8
+ATOM C5   CC3163    0.110  !                 |
+ATOM H5   HCA1      0.090  !             H61-C6-H62                 
+ATOM O5   OC3C61   -0.400  !                 |                      
+GROU                       !              H5-C5---O5                
+ATOM C2   CC3161    0.140  !       HO4-O4   /       \    O6 - lipid 
+ATOM H2   HCA1      0.090  !             \ / HO3     \  /           
+ATOM O2   OC311    -0.650  !              C4 |        C1             
+ATOM HO2  HCP1      0.420  !             / \ O3   H2 /  \            
+GROU                       !           H4   \|    | /    H1          
+ATOM C3   CC3161    0.140  !                 C3---C2                 
+ATOM H3   HCA1      0.090  !                 |    |                            
+ATOM O3   OC311    -0.650  !                 H3   O2-HO2                       
+ATOM HO3  HCP1      0.420  !                  
+GROU                                  
+ATOM C4   CC3161    0.140             
+ATOM H4   HCA1      0.090             
+ATOM O4   OC311    -0.650             
+ATOM HO4  HCP1      0.420             
+GROU                                  
+ATOM C6   CC321    -0.260             
+ATOM H61  HCA2      0.090             
+ATOM H62  HCA2      0.090
+ATOM S    SC        0.73
+ATOM O7   OC2DP    -0.55
+ATOM O8   OC2DP    -0.55
+ATOM O9   OC2DP    -0.55
+!ATOM S	  SG3O1     0.730
+!ATOM O7   OG2P1    -0.550
+!ATOM O8   OG2P1    -0.550
+!ATOM O9   OG2P1    -0.550
+GROUP                                        
+ATOM C44  CTO2     0.00 !                      BGAL1                          
+ATOM HA   HAL2     0.09 !                      |     alpha1                
+ATOM HB   HAL2     0.09 !                 HA---C44---HB                     
+GROUP                   !                      |     theta1
+ATOM C45  CTL1     0.17 !                      |
+ATOM HS   HAL1     0.09 !                 HS---C45------------
+ATOM O47  OSL     -0.49 !                      | beta1        |
+ATOM C7   CL       0.90 !                O49  O47          theta3
+ATOM O49   OBL    -0.63 !                  \\ /  beta2        |
+ATOM C8   CTL2    -0.22 !                    C7               |
+ATOM H2R  HAL2     0.09 !                    |   beta3        |
+ATOM H2S  HAL2     0.09 !              H2R---C8---H2S         |
+GROUP                   !                    |                |
+ATOM C46  CTL2     0.08 !                    |    beta4       |
+ATOM HX   HAL2     0.09 !                    |                |
+ATOM HY   HAL2     0.09 !                    |           HX---C46---HY
+ATOM O48  OSL     -0.49 !                    |                |   gamma1
+ATOM C23  CL       0.90 !                    |           O10  O48
+ATOM O10  OBL     -0.63 !                    |            \\ /    gamma2
+ATOM C24  CTL2    -0.22 !                    |              C23
+ATOM H2X  HAL2     0.09 !                    |              |     gamma3
+ATOM H2Y  HAL2     0.09 !                    |        H2X---C24---H2Y      
+GROUP                   !                    |              |     
+ATOM C9   CTL2    -0.18 !                    |              |     gamma4
+ATOM H3R  HAL2     0.09 !             H3R ---C9---H3S
+ATOM H3S  HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C10  CTL2    -0.18 !                    |
+ATOM H4R  HAL2     0.09 !             H4R ---C10---H4S      |
+ATOM H4S  HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C11  CTL2    -0.18 !                    |              |
+ATOM H5R  HAL2     0.09 !             H5R ---C11---H5S
+ATOM H5S  HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C12  CTL2    -0.18 !                    |
+ATOM H6R  HAL2     0.09 !             H6R ---C12---H6S      |
+ATOM H6S  HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C13  CTL2    -0.18 !                    |              |
+ATOM H7R  HAL2     0.09 !             H7R ---C13---H7S
+ATOM H7S  HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C14  CTL2    -0.18 !                    |
+ATOM H8R  HAL2     0.09 !             H8R ---C14---H8S      |
+ATOM H8S  HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C15  CTL2    -0.18 !                    |              |
+ATOM H9R  HAL2     0.09 !             H9R ---C15---H9S
+ATOM H9S  HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C16  CTL2    -0.18 !                    |
+ATOM H10R HAL2     0.09 !             H10R---C16---H10S     |
+ATOM H10S HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C17  CTL2    -0.18 !                    |              |
+ATOM H11R HAL2     0.09 !             H11R---C17---H11S
+ATOM H11S HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C18  CTL2    -0.18 !                    |
+ATOM H12R HAL2     0.09 !             H12R---C18---H12S     |
+ATOM H12S HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C19  CTL2    -0.18 !                    |              |
+ATOM H13R HAL2     0.09 !             H13R---C19---H13S
+ATOM H13S HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C20  CTL2    -0.18 !                    |
+ATOM H14R HAL2     0.09 !             H14R---C20---H14S     |
+ATOM H14S HAL2     0.09 !                    |
+GROUP                   !     
+ATOM C21  CTL2    -0.18 !                    |              |
+ATOM H15R HAL2     0.09 !             H15R---C21--H15S
+ATOM H15S HAL2     0.09 !                    |              |
+GROUP                   !     
+ATOM C22  CTL3    -0.27 !                    |
+ATOM H16R HAL3     0.09 !             H16R---C22---H16S     |
+ATOM H16S HAL3     0.09 !                    |
+ATOM H16T HAL3     0.09 !                   H16T            |
+GROUP                   !     
+ATOM C25  CTL2    -0.18 !                                   |
+ATOM H3X  HAL2     0.09 !                            H3X ---C25---H3Y
+ATOM H3Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C26  CTL2    -0.18 !                                   |
+ATOM H4X  HAL2     0.09 !                            H4X ---C26---H4Y
+ATOM H4Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C27  CTL2    -0.18 !                                   |
+ATOM H5X  HAL2     0.09 !                            H5X ---C27---H5Y
+ATOM H5Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C28  CTL2    -0.18 !                                   |
+ATOM H6X  HAL2     0.09 !                            H6X ---C28---H6Y
+ATOM H6Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C29  CTL2    -0.18 !                                   |
+ATOM H7X  HAL2     0.09 !                            H7X ---C29---H7Y
+ATOM H7Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C30  CTL2    -0.18 !                                   |
+ATOM H8X  HAL2     0.09 !                            H8X ---C30---H8Y
+ATOM H8Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C31  CTL2    -0.18 !                                   |
+ATOM H9X  HAL2     0.09 !                            H9X ---C31---H9Y
+ATOM H9Y  HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C32  CTL2    -0.18 !                                   |
+ATOM H10X HAL2     0.09 !                            H10X---C32---H10Y
+ATOM H10Y HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C33  CTL2    -0.18 !                                   |
+ATOM H11X HAL2     0.09 !                            H11X---C33---H11Y
+ATOM H11Y HAL2     0.09 !                                   |            
+GROUP                   !     
+ATOM C34  CTL2    -0.18 !                                   |
+ATOM H12X HAL2     0.09 !                            H12X---C34---H12Y
+ATOM H12Y HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C35  CTL2    -0.18 !                                   |
+ATOM H13X HAL2     0.09 !                            H13X---C35---H13Y
+ATOM H13Y HAL2     0.09 !                                   |            
+GROUP                   !     
+ATOM C36  CTL2    -0.18 !                                   |
+ATOM H14X HAL2     0.09 !                            H14X---C36---H14Y
+ATOM H14Y HAL2     0.09 !                                   |
+GROUP                   !     
+ATOM C37  CTL2    -0.18 !                                   |
+ATOM H15X HAL2     0.09 !                            H15X---C37---H15Y
+ATOM H15Y HAL2     0.09 !                                   |            
+GROUP                   !     
+ATOM C38  CTL3    -0.27 !                                   |
+ATOM H16X HAL3     0.09 !                            H16X---C38---H16Y
+ATOM H16Y HAL3     0.09 !                                   |
+ATOM H16Z HAL3     0.09 !                                   H16Z
+ 
+BOND C1 C2 C2 C3 C3 C4 C4 C5 C5 O5 O5 C1
+BOND C1 O6 O6 C44 C1 H1
+BOND C2 H2 C2 O2 O2 HO2
+BOND C3 O3 O3 HO3 C3 H3
+BOND C4 O4 O4 HO4 C4 H4
+BOND C5 H5 C5 C6 C6 H61 C6 H62 
+BOND C6 S S O7 S O8 S O9 
+ACCEPTOR O1 S
+ACCEPTOR O2 S
+ACCEPTOR O3 S
+
+BOND C44 HA C44 HB C44 C45 
+BOND C45 HS C45 O47 C45 C46
+BOND O47 C7 C7 C8
+DOUBLE C7 O49
+BOND C8 H2R C8 H2S C8 C9
+BOND C9 H3R C9 H3S C9 C10
+BOND C10 H4R C10 H4S C10 C11
+BOND C11 H5R C11 H5S C11 C12
+BOND C12 H6R C12 H6S C12 C13
+BOND C13 H7R C13 H7S C13 C14
+BOND C14 H8R C14 H8S C14 C15
+BOND C15 H9R C15 H9S C15 C16
+BOND C16 H10R C16 H10S C16 C17
+BOND C17 H11R C17 H11S C17 C18
+BOND C18 H12R C18 H12S C18 C19
+BOND C19 H13R C19 H13S C19 C20
+BOND C20 H14R C20 H14S C20 C21
+BOND C21 H15R C21 H15S C21 C22
+BOND C22 H16R C22 H16S C22 H16T
+
+BOND C46 HX C46 HY C46 O48 O48 C23 C23 C24
+DOUBLE C23 O10
+BOND C24 H2X C24 H2Y C24 C25
+BOND C25 H3X C25 H3Y C25 C26
+BOND C26 H4X C26 H4Y C26 C27
+BOND C27 H5X C27 H5Y C27 C28
+BOND C28 H6X C28 H6Y C28 C29
+BOND C29 H7X C29 H7Y C29 C30
+BOND C30 H8X C30 H8Y C30 C31
+BOND C31 H9X C31 H9Y C31 C32
+BOND C32 H10X C32 H10Y C32 C33
+BOND C33 H11X C33 H11Y C33 C34
+BOND C34 H12X C34 H12Y C34 C35
+BOND C35 H13X C35 H13Y C35 C36
+BOND C36 H14X C36 H14Y C36 C37
+BOND C37 H15X C37 H15Y C37 C38
+BOND C38 H16X C38 H16Y C38 H16Z
+
+IMPR C7 O47 C8 O49
+IMPR C23 O48 C24 O10
+
+

@@ -1,0 +1,12 @@
+REMARK original generated coordinate pdb file
+ATOM      1  MN1 S1  X   1     -10.399  40.086 -28.982  1.00  0.00      OEC MN
+ATOM      2  MN2 S1  X   1     -12.938  40.992 -29.494  1.00  0.00      OEC MN
+ATOM      3  MN3 S1  X   1     -13.065  38.247 -29.030  1.00  0.00      OEC MN
+ATOM      4  MN4 S1  X   1     -12.960  36.603 -26.883  1.00  0.00      OEC MN
+ATOM      5  CA1 S1  X   1     -12.605  40.282 -26.180  1.00  0.00      OEC CA
+ATOM      6  O1  S1  X   1     -11.627  41.228 -28.222  1.00  0.00      OEC  O
+ATOM      7  O2  S1  X   1     -13.825  39.845 -28.489  1.00  0.00      OEC  O
+ATOM      8  O3  S1  X   1     -11.842  39.534 -30.040  1.00  0.00      OEC  O
+ATOM      9  O4  S1  X   1     -14.190  37.203 -28.123  1.00  0.00      OEC  O
+ATOM     10  O5  S1  X   1     -12.037  38.158 -27.568  1.00  0.00      OEC  O
+END

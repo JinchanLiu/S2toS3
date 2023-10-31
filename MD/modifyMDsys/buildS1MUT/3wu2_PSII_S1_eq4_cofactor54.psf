@@ -1,0 +1,38 @@
+PSF
+
+       1 !NTITLE
+ REMARKS VMD-generated NAMD/X-Plor PSF structure file
+
+       5 !NATOM
+       1 CX   54   HCO3 CT   CC     0.800000       12.0110           0
+       2 CX   54   HCO3 OC1  OC    -0.570000       15.9990           0
+       3 CX   54   HCO3 OC2  OC    -0.570000       15.9990           0
+       4 CX   54   HCO3 OC3  OH1   -0.540000       15.9990           0
+       5 CX   54   HCO3 HO3  H      0.400000        1.0080           0
+
+       4 !NBOND: bonds
+       1       2       1       4       1       3       4       5
+
+       4 !NTHETA: angles
+       1       4       5       2       1       3       2       1       4
+       3       1       4
+
+       2 !NPHI: dihedrals
+       2       1       4       5       3       1       4       5
+
+       0 !NIMPHI: impropers
+
+
+       0 !NDON: donors
+
+
+       0 !NACC: acceptors
+
+
+       0 !NNB
+
+       0       0       0       0       0
+
+       1       0 !NGRP
+       0       0       0
+

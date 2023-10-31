@@ -1,0 +1,154 @@
+
+PRES TYRO  0.00 ! patch to deprotonate tyrosine by rlh
+DELETE ATOM HH ! modeled off SERD patch by kevo
+ATOM CE1 CA -0.524 ! from RESI PHEO in toppar_*_prot_model.str
+ATOM HE1 HP 0.396 !  MODIFIED BY PJD USING MULIKEN CHARGES FROM QCHEM
+ATOM CE2 CA -0.524 !
+ATOM HE2 HP 0.396 !
+ATOM CD1 CA -0.078 !
+ATOM CD2 CA -0.078 !
+ATOM HD1 HP 0.223 !
+ATOM HD2 HP 0.223 !
+ATOM CG CA  0.106 !
+ATOM CZ CA 0.392 !
+ATOM OH OC -0.532 !
+
+PRES TRPO  0.00 ! patch to deprotonate tryptophan
+DELETE ATOM HE1
+ATOM N    NH1    -0.47  
+ATOM HN   H       0.31  
+ATOM CA   CT1     0.07  
+ATOM HA   HB1     0.09  
+ATOM CB   CT2    -0.104 
+ATOM HB1  HA2     0.109 
+ATOM HB2  HA2     0.109  
+ATOM CG   CY      0.041  
+ATOM CD1  CA     -0.030
+ATOM HD1  HP      0.211
+ATOM NE1  NY     -0.546
+ATOM CE2  CPT     0.191
+ATOM CD2  CPT     0.050
+ATOM CE3  CAI    -0.206
+ATOM HE3  HP      0.172
+ATOM CZ3  CA     -0.126
+ATOM HZ3  HP      0.148
+ATOM CZ2  CAI    -0.253
+ATOM HZ2  HP      0.195
+ATOM CH2  CA     -0.111
+ATOM HH2  HP      0.15
+ATOM C    C       0.51
+ATOM O    O      -0.51
+
+PRES TRP2  0.00 ! patch try2
+DELETE ATOM HE1
+ATOM N    NH1    -0.47
+ATOM HN   H       0.31
+ATOM CA   CT1     0.07
+ATOM HA   HB1     0.09
+ATOM CB   CT2    -0.079
+ATOM HB1  HA2     0.171
+ATOM HB2  HA2     0.142
+ATOM CG   CY      0.006
+ATOM CD1  CA      0.016
+ATOM HD1  HP      0.183
+ATOM NE1  NY     -1.062
+ATOM CE2  CPT     0.172
+ATOM CD2  CPT     0.311
+ATOM CE3  CAI    -0.162
+ATOM HE3  HP      0.228
+ATOM CZ3  CA     -0.145
+ATOM HZ3  HP      0.189
+ATOM CZ2  CAI    -0.28
+ATOM HZ2  HP      0.16
+ATOM CH2  CA     -0.039
+ATOM HH2  HP      0.189
+ATOM C    C       0.51
+ATOM O    O      -0.51
+
+PRES TRP3          0.00
+DELETE ATOM HE1
+ATOM N    NH1    -0.47  !   
+ATOM HN   H       0.31  !  
+ATOM CA   CT1     0.07  !   
+ATOM HA   HB1     0.09  !   
+ATOM CB   CT2    -0.189 !   
+ATOM HB1  HA2     0.129 !   
+ATOM HB2  HA2     0.129 !   
+ATOM CG   CY     -0.027 !   
+ATOM CD1  CA     -0.102 !   
+ATOM HD1  HP      0.264
+ATOM NE1  NY     -0.482
+ATOM CE2  CPT     0.242
+ATOM CD2  CPT     0.120
+ATOM CE3  CAI    -0.244
+ATOM HE3  HP      0.185
+ATOM CZ3  CA     -0.192
+ATOM HZ3  HP      0.175
+ATOM CZ2  CAI    -0.256
+ATOM HZ2  HP      0.196
+ATOM CH2  CA     -0.125
+ATOM HH2  HP      0.177
+ATOM C    C       0.51
+ATOM O    O      -0.51
+
+PRES TRP4          0.00 ! Patch for deprotonated and oxidized TRP
+DELETE ATOM HE1
+ATOM N    NH1    -0.47  ! Charges were modified from TRP using scaling
+ATOM HN   H       0.31  ! determined by Muliken charges computed using
+ATOM CA   CT1     0.07  ! Q-CHEM at a B3LYP/cc-pVDZ level of theory.
+ATOM HA   HB1     0.09  !   
+ATOM CB   CT2    -0.189 ! Charges were then tuned to reproduce the dipole
+ATOM HB1  HA2     0.129 ! change computed using DFT.
+ATOM HB2  HA2     0.129 !   
+ATOM CG   CY     -0.02  ! USE THIS PATCH !!!
+ATOM CD1  CA     -0.102 !   
+ATOM HD1  HP      0.234     
+ATOM NE1  NY     -0.472
+ATOM CE2  CPT     0.216
+ATOM CD2  CPT     0.110
+ATOM CE3  CAI    -0.244
+ATOM HE3  HP      0.185
+ATOM CZ3  CA     -0.184
+ATOM HZ3  HP      0.175
+ATOM CZ2  CAI    -0.221
+ATOM HZ2  HP      0.196
+ATOM CH2  CA     -0.112
+ATOM HH2  HP      0.170
+ATOM C    C       0.51
+ATOM O    O      -0.51
+
+
+PRES TYP 1.00 ! patch to oxidize a protonated tyrosine
+GROUP
+ATOM N    NH1    -0.47  !     |        HD1  HE1
+ATOM HN   H       0.31  !  HN-N         |    |
+ATOM CA   CT1     0.127 !     |   HB1  CD1--CE1
+ATOM HA   HB1     0.09  !     |   |   //      \\
+GROUP                   !  HA-CA--CB--CG      CZ--OH +.
+ATOM CB   CT2    -0.203 !     |   |    \  __  /     \
+ATOM HB1  HA2     0.162 !     |   HB2  CD2--CE2     HH
+ATOM HB2  HA2     0.162 !   O=C         |    |
+GROUP                   !     |        HD2  HE2
+ATOM CG   CA      0.025
+GROUP
+ATOM CD1  CA     -0.073
+ATOM HD1  HP      0.208
+GROUP
+ATOM CE1  CA     -0.069
+ATOM HE1  HP      0.212
+GROUP
+ATOM CZ   CA      0.156
+ATOM OH   OH1    -0.405
+ATOM HH   H       0.49
+GROUP
+ATOM CD2  CA     -0.073
+ATOM HD2  HP      0.208
+GROUP
+ATOM CE2  CA     -0.069
+ATOM HE2  HP      0.212
+GROUP
+ATOM C    C       0.51
+ATOM O    O      -0.51
+
+END
+

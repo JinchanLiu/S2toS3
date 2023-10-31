@@ -1,0 +1,159 @@
+! Parameters written by Jinchan Liu (jinchan.liu09@gmail.com) for the
+! OEC complex in PSII
+! Please cite the following paper if you use this file:
+!
+
+! In the toppar_PSII_OEC.str and toppar_PSII_OEC_S2DW.str, I renamed 
+! the atoms in different COO- ligands of the OEC, to make it possible 
+! for them to adopt different charges. These atoms are defined here,
+! with parameters adapted from CHARMM36.
+! In addition, this file define the vdw parameters for the Mn and u-oxo.
+
+! Load this file whichever state of OEC you have in your MD system.
+
+
+ATOMS
+MASS -1 MN1    54.93804
+MASS -1 MN2    54.93804
+MASS -1 MN3    54.93804
+MASS -1 MN4    54.93804
+MASS -1 CAL    40.08000
+MASS -1 OXO1   15.99900
+MASS -1 OXO2   15.99900
+MASS -1 OXO3   15.99900
+MASS -1 OXO4   15.99900
+MASS -1 OXO5   15.99900
+MASS -1 OCO1   15.99900
+MASS -1 OCO2   15.99900
+MASS -1 OCO3   15.99900
+MASS -1 OCO4   15.99900
+MASS -1 OCO5   15.99900
+MASS -1 OCO6   15.99900
+MASS -1 OCO7   15.99900
+MASS -1 OCO8   15.99900
+MASS -1 OCO9   15.99900
+MASS -1 OCO10  15.99900
+MASS -1 OCO11  15.99900
+MASS -1 OCO12  15.99900
+
+BONDS
+OCO1  CC    525.000     1.2600
+OCO2  CC    525.000     1.2600
+OCO3  CC    525.000     1.2600
+OCO4  CC    525.000     1.2600
+OCO5  CC    525.000     1.2600
+OCO6  CC    525.000     1.2600
+OCO7  CC    525.000     1.2600
+OCO8  CC    525.000     1.2600
+OCO9  CC    525.000     1.2600
+OCO10 CC    525.000     1.2600
+OCO11 CC    525.000     1.2600
+OCO12 CC    525.000     1.2600
+
+ANGLES
+OCO1   CC   OCO2   100.000    124.00   70.00   2.22500 
+OCO3   CC   OCO4   100.000    124.00   70.00   2.22500 
+OCO5   CC   OCO6   100.000    124.00   70.00   2.22500 
+OCO7   CC   OCO8   100.000    124.00   70.00   2.22500 
+OCO9   CC   OCO10  100.000    124.00   70.00   2.22500 
+OCO11  CC   OCO12  100.000    124.00   70.00   2.22500 
+
+OCO1   CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO2   CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO3   CC   CT2A   40.000   118.0000  50.00   2.38800 
+OCO4   CC   CT2A   40.000   118.0000  50.00   2.38800 
+OCO5   CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO6   CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO9   CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO10  CC   CT2    40.000   118.0000  50.00   2.38800 
+OCO11  CC   CT2A   40.000   118.0000  50.00   2.38800 
+OCO12  CC   CT2A   40.000   118.0000  50.00   2.38800 
+
+OCO7   CC   CT1   40.000    118.00   50.00   2.38800
+OCO8   CC   CT1   40.000    118.00   50.00   2.38800
+
+
+DIHEDRALS
+! for ASP 
+!CT1  CT2A CC   OC       0.8400  1     0.00 
+!CT1  CT2A CC   OC       0.9800  2   180.00 
+!CT1  CT2A CC   OC       1.4600  3     0.00 
+!HA2  CT2  CC   OC       0.0500  6   180.00 ! From X    CT2  CC   X
+OCO3   CC   CTA2   CT1   0.8400  1     0.00 
+OCO3   CC   CTA2   CT1   0.9800  2   180.00 
+OCO3   CC   CTA2   CT1   1.4600  3     0.00 
+OCO3   CC   CTA2   HA2   0.0500  6   180.00 
+
+OCO4   CC   CTA2   CT1   0.8400  1     0.00 
+OCO4   CC   CTA2   CT1   0.9800  2   180.00 
+OCO4   CC   CTA2   CT1   1.4600  3     0.00 
+OCO4   CC   CTA2   HA2   0.0500  6   180.00 
+
+OCO11  CC   CTA2   CT1   0.8400  1     0.00 
+OCO11  CC   CTA2   CT1   0.9800  2   180.00 
+OCO11  CC   CTA2   CT1   1.4600  3     0.00 
+OCO11  CC   CTA2   HA2   0.0500  6   180.00 
+
+OCO12  CC   CTA2   CT1   0.8400  1     0.00 
+OCO12  CC   CTA2   CT1   0.9800  2   180.00 
+OCO12  CC   CTA2   CT1   1.4600  3     0.00 
+OCO12  CC   CTA2   HA2   0.0500  6   180.00 
+
+! for GLU, no new parameters are needed
+!X     CT2  CC   X        0.0500  6   180.00 ! ALLOW   POL PEP
+!HA2   CT2  CC   OC       0.0500  6   180.00
+!CT2A  CT2  CC   OC       0.0500  6   180.00 
+
+! for ALA, no new parameters are needed
+!X    CT1  CC   X        0.0500  6   180.00 ! ALLOW   POL PEP
+
+IMPROPER
+!OC   X    X    CC     96.0000         0      0.0000 ! ALLOW   PEP POL ARO ION
+OCO1    X    X    CC     96.0000         0      0.0000
+OCO2    X    X    CC     96.0000         0      0.0000
+OCO3    X    X    CC     96.0000         0      0.0000
+OCO4    X    X    CC     96.0000         0      0.0000
+OCO5    X    X    CC     96.0000         0      0.0000
+OCO6    X    X    CC     96.0000         0      0.0000
+OCO7    X    X    CC     96.0000         0      0.0000
+OCO8    X    X    CC     96.0000         0      0.0000
+OCO9    X    X    CC     96.0000         0      0.0000
+OCO10   X    X    CC     96.0000         0      0.0000
+OCO11   X    X    CC     96.0000         0      0.0000
+OCO12   X    X    CC     96.0000         0      0.0000
+
+
+NONBONDED nbxmod  5 atom cdiel fshift vatom vdistance vfswitch -
+cutnb 14.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5
+!OC     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO1      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO2      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO3      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO4      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO5      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO6      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO7      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO8      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO9      0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO10     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO11     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+OCO12     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+
+MN1       0.000000  -0.125200     0.384400
+MN2       0.000000  -0.125200     0.384400
+MN3       0.000000  -0.125200     0.384400
+MN4       0.000000  -0.125200     0.384400
+OXO1      0.000000  -0.120000     1.650000 ! system not very stable with 1.70 when both O6 and O5 are present 
+OXO2      0.000000  -0.120000     1.650000
+OXO3      0.000000  -0.120000     1.650000
+OXO4      0.000000  -0.120000     1.650000
+OXO5      0.000000  -0.120000     1.650000
+OXO6	  0.000000  -0.120000     1.650000
+!OXO1      0.000000  -0.120000     1.700000 
+!OXO2      0.000000  -0.120000     1.700000
+!OXO3      0.000000  -0.120000     1.700000
+!OXO4      0.000000  -0.120000     1.700000
+!OXO5      0.000000  -0.120000     1.700000
+!OXO6	  0.000000  -0.120000     1.700000
+HXO6	  0.000000  -0.046000     0.224500 
+

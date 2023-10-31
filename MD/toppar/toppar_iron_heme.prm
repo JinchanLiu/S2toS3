@@ -1,0 +1,123 @@
+* bis-HIS heme and non-heme iron complexes for CHARMM36
+* Compiled by Suliman Adam, Free Universtity Berlin
+* Version from June 2017
+*
+
+! Parent files that have to be read prior to streaming this file:
+! (1)  top_all36_prot.rtf (CHARMM36 protein, doi: 10.1021/ct300400x , 10.1021/ja036959e , 10.1021/jp973084f )
+! (2)  par_all36_prot.prm
+! (3a) toppar_all36_prot_heme.str for loading heme B with propionic groups (doi: 10.1016/S0022-2836(05)80196-2 )
+! (3b) toppar_ions_won.str        for loading non-heme iron (doi: 10.1021/jp309150r)
+
+!reference:
+!Adam, S., Knapp-Mohammady, M., Yi, J., Bondar, A.-N. Revised CHARMM force field 
+!parameters for iron-containing cofactors of photosystem II. (doi: 10.1002/jcc.24918)
+
+
+* Parameters for bis-HIS heme and non-heme iron complexes
+*
+
+ATOMS
+MASS   -1 FE2H0  55.84700 ! heme iron
+MASS   -1 FE2H   55.84700 ! heme iron
+MASS   -1 FE3H   55.84700 ! hematin iron
+MASS   -1 FE2NH1 55.84700 ! ferrous non-heme iron in his-bicarbonate system
+MASS   -1 FE3NH1 55.84700 ! ferric  non-heme iron in his-bicarbonate system
+MASS   -1 FE2NH2 55.84700 ! ferrous non-heme iron in his-only system
+MASS   -1 FE3NH2 55.84700 ! ferric  non-heme iron in his-only system
+
+BONDS
+!bis-HIS heme/hematin
+NPH    FE2H0  270.200     2.040 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE2H0   80.000     2.110 ! optimised, from all36_prot_heme: NR2  FE
+NPH    FE2H   270.200     2.040 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE2H    80.000     2.110 ! optimised, from all36_prot_heme: NR2  FE
+NPH    FE3H   270.000     2.030 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE3H    80.000     2.080 ! optimised, from all36_prot_heme: NR2  FE
+!non-heme iron with bicarbonate and histidines
+NR2    FE2NH1 140.000     1.960 ! optimised, from all36_prot_heme: NR2  FE
+OC     FE2NH1 100.000     1.995 ! optimised, from all36_prot_heme: OM   FE
+NR2    FE3NH1 140.000     1.960 ! optimised, from all36_prot_heme: NR2  FE
+OC     FE3NH1 100.000     1.890 ! optimised, from all36_prot_heme: OM   FE
+OH1    CC     230.000     1.380 ! optimised, from all36_prot:      OH1  CD
+!non-heme iron with only histidines
+NR2    FE2NH2 140.000     1.940 ! optimised, from all36_prot_heme: NR2  FE
+NR2    FE3NH2 140.000     1.870 ! optimised, from all36_prot_heme: NR2  FE
+
+ANGLES
+!bis-HIS heme/hematin
+FE2H0  NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE2H0  NR2    CPH2   20.000   138.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE2H0  NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE2H0  NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE2H0  NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+FE2H   NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE2H   NR2    CPH2   25.000   137.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE2H   NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE2H   NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE2H   NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+FE3H   NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE3H   NR2    CPH2   25.000   137.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE3H   NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE3H   NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE3H   NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+!non-heme iron with bicarbonate and histidines
+FE2NH1 NR2    CPH1   25.000   123.70 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE2NH1 NR2    CPH2   25.000   127.60 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+OC     FE2NH1 OC      0.000   101.50 ! optimised, from all36_prot:      OC     CC     OC
+FE2NH1 OC     CC     40.000    85.00 ! optimised, from all36_cgenff:    CG2O6  OG302  CG321
+FE3NH1 NR2    CPH1   25.000   122.70 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE3NH1 NR2    CPH2   25.000   125.00 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+OC     FE3NH1 OC      0.000   101.50 ! optimised, from all36_prot:      OC     CC     OC
+FE3NH1 OC     CC     40.000    98.00 ! optimised, from all36_cgenff:    CG2O6  OG302  CG321
+H      OH1    CC     55.000   113.30 ! optimised, from all36_prot:      H      OH1    CD
+OH1    CC     OC     50.000    123.00  210.00   2.26200 ! taken from all36_prot:  OH1    CD     OB
+!non-heme iron with only histidines
+FE2NH2 NR2    CPH1   25.000   124.00 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE2NH2 NR2    CPH2   25.000   125.80 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+FE3NH2 NR2    CPH1   25.000   127.00 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE3NH2 NR2    CPH2   25.000   124.00 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+
+DIHEDRALS
+!bis-HIS heme/hematin
+NPH    FE2H0  NR2    CPH1     0.1900  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.0700  2  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.0400  3  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.1400  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.1000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.0700  3  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.5500  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+X      FE2H0  NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+X      FE2H   NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+X      FE3H   NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+!non-heme iron with bicarbonate and histidines
+OC     CC     OH1    H        2.2000  2  180.00 ! optimised, from all36_prot:      H    OH1  CA   CA
+FE2NH1 OC     CC     OH1      3.0000  2  180.00 ! optimised, from all36_prot:      X    CD   OH1  X
+FE2NH1 OC     CC     OC       0.5000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NPH  X 
+FE3NH1 OC     CC     OH1      3.0000  2  180.00 ! optimised, from all36_prot:      X    CD   OH1  X
+FE3NH1 OC     CC     OC       0.0000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NPH  X 
+CC     OC     FE2NH1 OC       0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+CC     OC     FE3NH1 OC       0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+
+IMPROPER
+!bis-HIS heme/hematin
+NPH    CPA    CPA    FE2H0  137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+NPH    CPA    CPA    FE2H   137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+NPH    CPA    CPA    FE3H   137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+CC     OC     OC     OH1    100.0000  0    0.00 ! added by Manoj  
+
+
+NONBONDED nbxmod  5 atom cdiel fshift vatom vdistance vfswitch -
+cutnb 14.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5
+FE2H0   0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2H    0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3H    0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2NH1  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3NH1  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2NH2  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3NH2  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+
+END
+
+RETURN
+

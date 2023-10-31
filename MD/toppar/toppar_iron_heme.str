@@ -1,0 +1,573 @@
+* bis-HIS heme and non-heme iron complexes for CHARMM36
+* Compiled by Suliman Adam, Free Universtity Berlin
+* Version from June 2017
+*
+
+! Parent files that have to be read prior to streaming this file:
+! (1)  top_all36_prot.rtf (CHARMM36 protein, doi: 10.1021/ct300400x , 10.1021/ja036959e , 10.1021/jp973084f )
+! (2)  par_all36_prot.prm
+! (3a) toppar_all36_prot_heme.str for loading heme B with propionic groups (doi: 10.1016/S0022-2836(05)80196-2 )
+! (3b) toppar_ions_won.str        for loading non-heme iron (doi: 10.1021/jp309150r)
+
+read rtf card append
+* Topology for bis-HIS heme and non-heme iron complexes
+*
+41 1
+
+!reference:
+!Adam, S., Knapp-Mohammady, M., Yi, J., Bondar, A.-N. Revised CHARMM force field 
+!parameters for iron-containing cofactors of photosystem II. (doi: 10.1002/jcc.24918)
+
+MASS   -1 FE2H0  55.84700 ! heme iron, taken from all36_prot_heme: FE
+MASS   -1 FE2H   55.84700 ! heme iron, taken from all36_prot_heme: FE
+MASS   -1 FE3H   55.84700 ! hematin iron, taken from all36_prot_heme: FE
+MASS   -1 FE2NH1 55.84700 ! ferrous non-heme iron in his-bicarbonate system, taken from all36_prot_heme: FE
+MASS   -1 FE3NH1 55.84700 ! ferric  non-heme iron in his-bicarbonate system, taken from all36_prot_heme: FE
+MASS   -1 FE2NH2 55.84700 ! ferrous non-heme iron in his-only system, taken from all36_prot_heme: FE
+MASS   -1 FE3NH2 55.84700 ! ferric  non-heme iron in his-only system, taken from all36_prot_heme: FE
+
+RESI FE2             2.00
+ATOM FE2P    FE2NH1  2.00
+
+RESI HCO3           -1.00 ! Bicarbonate with MK charges
+ATOM CT      CC      0.84 !
+ATOM OC1     OC     -0.74 ! Use with patch only!
+ATOM OC2     OC     -0.74 !
+ATOM OC3     OH1    -0.72 !
+ATOM HO3     H       0.36 !
+BOND CT   OC1    CT   OC3
+BOND OC3  HO3
+BOND CT   OC2
+
+!ferrous FeHis
+PRES FEBI2           1.00 ! Connect non-heme iron (2+) to four histidines and bicarbonate
+                          ! Order: 1-FE2P, 2-HSD, 3-HSD, 4-HSD, 5-HSD, 6-HCO3
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE2P   FE2NH1  0.16 ! 
+GROUP                     !
+ATOM 2ND1    NR1    -0.40 !
+ATOM 2HD1    H       0.34 !                      2HD1    2HE1      3HE1    3HD1
+ATOM 2CG     CPH1    0.43 !                        |      |          |      |
+ATOM 2CB     CT2    -0.24 !                2HB1   2ND1--2CE1        3CE1--3ND1    3HB1
+ATOM 2HB1    HA2     0.09 !                 |    /       ||          ||       \    |
+ATOM 2HB2    HA2     0.09 !           -----2CB--2CG      ||          ||       3CG-3CB-----
+GROUP                     !                 |    \\      ||          ||       //   |
+ATOM 2NE2    NR2     0.10 !                2HB2   2CD2--2NE2        3NE2--3CD2    3HB2
+ATOM 2CD2    CPH1   -0.48 !                        |        \      /        |
+ATOM 2HD2    HR3     0.23 !                       2HD2       \    /        3HD2
+ATOM 2CE1    CPH2   -0.02 !                                   \  /
+ATOM 2HE1    HR1     0.19 !                                   1FE(2+)
+GROUP                     !                                   /||\
+ATOM 3ND1    NR1    -0.40 !                                  / || \
+ATOM 3HD1    H       0.34 !                                 /  ||  \
+ATOM 3CG     CPH1    0.43 !                                /  /  \  \
+ATOM 3CB     CT2    -0.24 !                               /  /(-) \  \
+ATOM 3HB1    HA2     0.09 !                              / 6OC1  6OC2 \
+ATOM 3HB2    HA2     0.09 !                  5HD2       /    \   //    \        4HD2
+GROUP                     !                   |        /      \ //      \        |
+ATOM 3NE2    NR2     0.10 !           5HB1   5CD2--5NE2       6CT        4NE2--4CD2     4HB1
+ATOM 3CD2    CPH1   -0.48 !            |    //      ||         |          ||       \\    |
+ATOM 3HD2    HR3     0.23 !      -----5CB--5CG      ||       6OC3         ||       4CG--4CB-----
+ATOM 3CE1    CPH2   -0.02 !            |    \       ||         |          ||       /     |
+ATOM 3HE1    HR1     0.19 !           5HB2   5ND1--5CE1      6HO3        4CE1--4ND1     4HB2
+GROUP                     !                   |       \                  /        |
+ATOM 4ND1    NR1    -0.40 !                 5HD1      5HE1             4HE1      4HD1 
+ATOM 4HD1    H       0.34 !  
+ATOM 4CG     CPH1    0.43 ! 
+ATOM 4CB     CT2    -0.24 ! 
+ATOM 4HB1    HA2     0.09 !  
+ATOM 4HB2    HA2     0.09 !  
+GROUP                     !  
+ATOM 4NE2    NR2     0.10 ! 
+ATOM 4CD2    CPH1   -0.48 ! 
+ATOM 4HD2    HR3     0.23 !  
+ATOM 4CE1    CPH2   -0.02 ! 
+ATOM 4HE1    HR1     0.19 !  
+GROUP                     !
+ATOM 5ND1    NR1    -0.40 ! 
+ATOM 5HD1    H       0.34 !  
+ATOM 5CG     CPH1    0.43 ! 
+ATOM 5CB     CT2    -0.24 ! 
+ATOM 5HB1    HA2     0.09 !  
+ATOM 5HB2    HA2     0.09 !  
+GROUP                     !  
+ATOM 5NE2    NR2     0.10 ! 
+ATOM 5CD2    CPH1   -0.48 ! 
+ATOM 5HD2    HR3     0.23 !  
+ATOM 5CE1    CPH2   -0.02 ! 
+ATOM 5HE1    HR1     0.19 !  
+GROUP                     !
+ATOM 6CT      CC     0.80 !
+ATOM 6OC1     OC    -0.57 !
+ATOM 6OC2     OC    -0.57 !
+ATOM 6OC3     OH1   -0.54 !
+ATOM 6HO3     H      0.40 !
+
+BOND 2NE2    1FE2P    3NE2    1FE2P    4NE2    1FE2P    5NE2    1FE2P
+BOND 6OC1    1FE2P    6OC2    1FE2P
+ANGL 1FE2P   2NE2    2CD2     1FE2P   2NE2    2CE1     1FE2P   3NE2    3CD2     1FE2P   3NE2    3CE1
+ANGL 1FE2P   4NE2    4CD2     1FE2P   4NE2    4CE1     1FE2P   5NE2    5CD2     1FE2P   5NE2    5CE1
+ANGL 1FE2P   6OC1    6CT      1FE2P   6OC2    6CT
+ANGL 6OC1    1FE2P   6OC2
+DIHE 1FE2P   6OC1  6CT   6OC2   1FE2P   6OC1  6CT   6OC3   1FE2P   6OC2  6CT   6OC1   1FE2P   6OC2  6CT   6OC3
+DIHE 6CT   6OC1  1FE2P   6OC2   6CT   6OC2  1FE2P   6OC1
+
+!ferric FeHis
+PRES FEBI3           2.00 ! Connect non-heme iron (3+) to four histidines and bicarbonate
+                          ! Order: 1-FE3P, 2-HSD, 3-HSD, 4-HSD, 5-HSD, 6-HCO3
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE3P   FE3NH1  0.04 ! 
+GROUP                     !
+ATOM 2ND1    NR1    -0.36 !
+ATOM 2HD1    H       0.38 !                      2HD1    2HE1      3HE1    3HD1
+ATOM 2CG     CPH1    0.31 !                        |      |          |      |
+ATOM 2CB     CT2    -0.09 !                2HB1   2ND1--2CE1        3CE1--3ND1    3HB1
+ATOM 2HB1    HA2     0.09 !                 |    /       ||          ||       \    |
+ATOM 2HB2    HA2     0.09 !           -----2CB--2CG      ||          ||       3CG-3CB-----
+GROUP                     !                 |    \\      ||          ||       //   |
+ATOM 2NE2    NR2     0.14 !                2HB2   2CD2--2NE2        3NE2--3CD2    3HB2
+ATOM 2CD2    CPH1   -0.45 !                        |        \      /        |
+ATOM 2HD2    HR3     0.23 !                       2HD2       \    /        3HD2
+ATOM 2CE1    CPH2   -0.02 !                                   \  /
+ATOM 2HE1    HR1     0.22 !                                   1FE(3+)
+GROUP                     !                                   /||\
+ATOM 3ND1    NR1    -0.36 !                                  / || \
+ATOM 3HD1    H       0.38 !                                 /  ||  \
+ATOM 3CG     CPH1    0.31 !                                /  /  \  \
+ATOM 3CB     CT2    -0.09 !                               /  /(-) \  \
+ATOM 3HB1    HA2     0.09 !                              / 6OC1  6OC2 \
+ATOM 3HB2    HA2     0.09 !                  5HD2       /    \   //    \        4HD2
+GROUP                     !                   |        /      \ //      \        |
+ATOM 3NE2    NR2     0.14 !           5HB1   5CD2--5NE2       6CT        4NE2--4CD2     4HB1
+ATOM 3CD2    CPH1   -0.45 !            |    //      ||         |          ||       \\    |
+ATOM 3HD2    HR3     0.23 !      -----5CB--5CG      ||       6OC3         ||       4CG--4CB-----
+ATOM 3CE1    CPH2   -0.02 !            |    \       ||         |          ||       /     |
+ATOM 3HE1    HR1     0.22 !           5HB2   5ND1--5CE1      6HO3        4CE1--4ND1     4HB2
+GROUP                     !                   |       \                  /        |
+ATOM 4ND1    NR1    -0.36 !                 5HD1      5HE1             4HE1      4HD1 
+ATOM 4HD1    H       0.38 !
+ATOM 4CG     CPH1    0.31 !
+ATOM 4CB     CT2    -0.09 !
+ATOM 4HB1    HA2     0.09 !
+ATOM 4HB2    HA2     0.09 !
+GROUP                     !
+ATOM 4NE2    NR2     0.14 !
+ATOM 4CD2    CPH1   -0.45 !
+ATOM 4HD2    HR3     0.23 !
+ATOM 4CE1    CPH2   -0.02 !
+ATOM 4HE1    HR1     0.22 !
+GROUP                     !
+ATOM 5ND1    NR1    -0.36 !
+ATOM 5HD1    H       0.38 !
+ATOM 5CG     CPH1    0.31 !
+ATOM 5CB     CT2    -0.09 !
+ATOM 5HB1    HA2     0.09 !
+ATOM 5HB2    HA2     0.09 !
+GROUP                     !
+ATOM 5NE2    NR2     0.14 !
+ATOM 5CD2    CPH1   -0.45 !
+ATOM 5HD2    HR3     0.23 !
+ATOM 5CE1    CPH2   -0.02 !
+ATOM 5HE1    HR1     0.22 !
+GROUP                     !
+ATOM 6CT      CC     0.72 !
+ATOM 6OC1     OC    -0.47 !
+ATOM 6OC2     OC    -0.47 !
+ATOM 6OC3     OH1   -0.44 !
+ATOM 6HO3     H      0.46 !
+BOND 2NE2    1FE3P    3NE2    1FE3P    4NE2    1FE3P    5NE2    1FE3P
+BOND 6OC1    1FE3P    6OC2    1FE3P
+ANGL 1FE3P   2NE2    2CD2     1FE3P   2NE2    2CE1     1FE3P   3NE2    3CD2     1FE3P   3NE2    3CE1
+ANGL 1FE3P   4NE2    4CD2     1FE3P   4NE2    4CE1     1FE3P   5NE2    5CD2     1FE3P   5NE2    5CE1
+ANGL 1FE3P   6OC1    6CT      1FE3P   6OC2    6CT 
+ANGL 6OC1    1FE3P   6OC2   
+DIHE 1FE3P   6OC1  6CT   6OC2   1FE3P   6OC1  6CT   6OC3   1FE3P   6OC2  6CT   6OC1   1FE3P   6OC2  6CT   6OC3
+DIHE 6CT   6OC1  1FE3P   6OC2   6CT   6OC2  1FE3P   6OC1
+
+!ferrous FeHis without bicarbonate
+PRES FE4H2           2.00 ! Connect non-heme iron (2+) to four histidines
+                          ! Order: 1-FX, 2-HSD, 3-HSD, 4-HSD, 5-HSD
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FX     FE2NH2  0.08 ! 
+GROUP                     !
+ATOM 2ND1    NR1    -0.12 !
+ATOM 2HD1    H       0.31 !                2HD1      2HE1   3HE1    3HD1
+ATOM 2CG     CPH1    0.33 !                  |       /        \       |
+ATOM 2CB     CT2    -0.11 !          2HB1   2ND1--2CE1        3CE1--3ND1    3HB1
+ATOM 2HB1    HA2     0.09 !           |    /       ||          ||       \    |
+ATOM 2HB2    HA2     0.09 !     -----2CB--2CG      ||          ||       3CG-3CB-----
+GROUP                     !           |    \\      ||          ||       //   |
+ATOM 2NE2    NR2    -0.07 !          2HB2   2CD2--2NE2        3NE2--3CD2    3HB2
+ATOM 2CD2    CPH1   -0.38 !                  |        \      /        |
+ATOM 2HD2    HR3     0.24 !                 2HD2       \    /        3HD2
+ATOM 2CE1    CPH2   -0.13 !                             \  /
+ATOM 2HE1    HR1     0.23 !                             1FE(2+)
+GROUP                     !                             /  \
+ATOM 3ND1    NR1    -0.12 !                 5HD2       /    \        4HD2
+ATOM 3HD1    H       0.31 !                  |        /      \        |
+ATOM 3CG     CPH1    0.33 !          5HB1   5CD2--5NE2        4NE2--4CD2     4HB1
+ATOM 3CB     CT2    -0.11 !           |    //      ||          ||       \\    |
+ATOM 3HB1    HA2     0.09 !     -----5CB--5CG      ||          ||       4CG--4CB-----
+ATOM 3HB2    HA2     0.09 !           |    \       ||          ||       /     |
+GROUP                     !          5HB2   5ND1--5CE1        4CE1--4ND1     4HB2
+ATOM 3NE2    NR2    -0.07 !                  |       \        /       |
+ATOM 3CD2    CPH1   -0.38 !                5HD1      5HE1   4HE1     4HD1
+ATOM 3HD2    HR3     0.24 !
+ATOM 3CE1    CPH2   -0.13 !
+ATOM 3HE1    HR1     0.23 !
+GROUP                     !
+ATOM 4ND1    NR1    -0.12 !
+ATOM 4HD1    H       0.31 !
+ATOM 4CG     CPH1    0.33 !
+ATOM 4CB     CT2    -0.11 !
+ATOM 4HB1    HA2     0.09 !
+ATOM 4HB2    HA2     0.09 !
+GROUP                     !
+ATOM 4NE2    NR2    -0.07 !
+ATOM 4CD2    CPH1   -0.38 !
+ATOM 4HD2    HR3     0.24 !
+ATOM 4CE1    CPH2   -0.13 !
+ATOM 4HE1    HR1     0.23 !
+GROUP                     !
+ATOM 5ND1    NR1    -0.12 !
+ATOM 5HD1    H       0.31 !
+ATOM 5CG     CPH1    0.33 !
+ATOM 5CB     CT2    -0.11 !
+ATOM 5HB1    HA2     0.09 !
+ATOM 5HB2    HA2     0.09 !
+GROUP                     !
+ATOM 5NE2    NR2    -0.07 !
+ATOM 5CD2    CPH1   -0.38 !
+ATOM 5HD2    HR3     0.24 !
+ATOM 5CE1    CPH2   -0.13 !
+ATOM 5HE1    HR1     0.23 !
+BOND 2NE2    1FX      3NE2    1FX      4NE2    1FX      5NE2    1FX
+ANGL 1FX     2NE2    2CD2     1FX     2NE2    2CE1     1FX     3NE2    3CD2     1FX     3NE2    3CE1
+ANGL 1FX     4NE2    4CD2     1FX     4NE2    4CE1     1FX     5NE2    5CD2     1FX     5NE2    5CE1
+
+!ferric FeHis without bicarbonate
+PRES FE4H3           3.00 ! Connect non-heme iron (3+) to four histidines
+                          ! Order: 1-FE3P, 2-HSD, 3-HSD, 4-HSD, 5-HSD
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE3P   FE3NH2  0.12 ! 
+GROUP                     !
+ATOM 2ND1    NR1    -0.26 !
+ATOM 2HD1    H       0.41 !                2HD1      2HE1   3HE1    3HD1
+ATOM 2CG     CPH1    0.35 !                  |       /        \       |
+ATOM 2CB     CT2    -0.09 !          2HB1   2ND1--2CE1        3CE1--3ND1    3HB1
+ATOM 2HB1    HA2     0.09 !           |    /       ||          ||       \    |
+ATOM 2HB2    HA2     0.09 !     -----2CB--2CG      ||          ||       3CG-3CB-----
+GROUP                     !           |    \\      ||          ||       //   |
+ATOM 2NE2    NR2     0.03 !          2HB2   2CD2--2NE2        3NE2--3CD2    3HB2
+ATOM 2CD2    CPH1   -0.40 !                  |        \      /        |
+ATOM 2HD2    HR3     0.32 !                 2HD2       \    /        3HD2
+ATOM 2CE1    CPH2   -0.09 !                             \  /
+ATOM 2HE1    HR1     0.27 !                             1FE(3+)
+GROUP                     !                             /  \
+ATOM 3ND1    NR1    -0.26 !                 5HD2       /    \        4HD2
+ATOM 3HD1    H       0.41 !                  |        /      \        |
+ATOM 3CG     CPH1    0.35 !          5HB1   5CD2--5NE2        4NE2--4CD2     4HB1
+ATOM 3CB     CT2    -0.09 !           |    //      ||          ||       \\    |
+ATOM 3HB1    HA2     0.09 !     -----5CB--5CG      ||          ||       4CG--4CB-----
+ATOM 3HB2    HA2     0.09 !           |    \       ||          ||       /     |
+GROUP                     !          5HB2   5ND1--5CE1        4CE1--4ND1     4HB2
+ATOM 3NE2    NR2     0.03 !                  |       \        /       |
+ATOM 3CD2    CPH1   -0.40 !                5HD1      5HE1   4HE1     4HD1
+ATOM 3HD2    HR3     0.32 !
+ATOM 3CE1    CPH2   -0.09 !
+ATOM 3HE1    HR1     0.27 !
+GROUP                     !
+ATOM 4ND1    NR1    -0.26 !
+ATOM 4HD1    H       0.41 !
+ATOM 4CG     CPH1    0.35 !
+ATOM 4CB     CT2    -0.09 !
+ATOM 4HB1    HA2     0.09 !
+ATOM 4HB2    HA2     0.09 !
+GROUP                     !
+ATOM 4NE2    NR2     0.03 !
+ATOM 4CD2    CPH1   -0.40 !
+ATOM 4HD2    HR3     0.32 !
+ATOM 4CE1    CPH2   -0.09 !
+ATOM 4HE1    HR1     0.27 !
+GROUP                     !
+ATOM 5ND1    NR1    -0.26 !
+ATOM 5HD1    H       0.41 !
+ATOM 5CG     CPH1    0.35 !
+ATOM 5CB     CT2    -0.09 !
+ATOM 5HB1    HA2     0.09 !
+ATOM 5HB2    HA2     0.09 !
+GROUP                     !
+ATOM 5NE2    NR2     0.03 !
+ATOM 5CD2    CPH1   -0.40 !
+ATOM 5HD2    HR3     0.32 !
+ATOM 5CE1    CPH2   -0.09 !
+ATOM 5HE1    HR1     0.27 !
+BOND 2NE2    1FE3P    3NE2    1FE3P    4NE2    1FE3P    5NE2    1FE3P
+ANGL 1FE3P   2NE2    2CD2     1FE3P   2NE2    2CE1     1FE3P   3NE2    3CD2     1FE3P   3NE2    3CE1
+ANGL 1FE3P   4NE2    4CD2     1FE3P   4NE2    4CE1     1FE3P   5NE2    5CD2     1FE3P   5NE2    5CE1
+
+!ferrous HemeHis, Set 1
+PRES HEHI2           0.00 ! bis-HIS heme link
+                          ! Order: 1-HEME, 2-HSD, 3-HSD
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE     FE2H    0.24 !
+ATOM 1NA     NPH    -0.18 !
+ATOM 1NB     NPH    -0.18 !
+ATOM 1NC     NPH    -0.18 !           1O2A  1O1A                1O2D  1O1D
+ATOM 1ND     NPH    -0.18 !              \\ //                     \\ //
+ATOM 1C1A    CPA     0.12 !              1CGA                      1CGD
+ATOM 1C2A    CPB    -0.06 !                |                         |
+ATOM 1C3A    CPB    -0.06 !        HBA1--1CBA--HBA2    1HA   1HBD1-1CBD-1HBD2
+ATOM 1C4A    CPA     0.12 !                |            |            |
+ATOM 1C1B    CPA     0.12 !        HAA1--1CAA-HAA2  __1CHA__ 1HAD1-1CAD-1HAD2
+ATOM 1C2B    CPB    -0.06 !                |       /        \       /
+ATOM 1C3B    CPB    -0.06 !              1C2A---C1A         1C4D--1C3D
+ATOM 1C4B    CPA     0.12 !                |     |           |     |
+ATOM 1C1C    CPA     0.12 !  1HMA1\        |     |           |     |        /1HMD1
+ATOM 1C2C    CPB    -0.06 !  1HMA2-1CMA--1C3A   1NA  (2NE2) 1ND   1C2D--1CMD-1HMD2
+ATOM 1C3C    CPB    -0.06 !  1HMA3/         \   / \  2-HSD  / \   /         \1HMD3
+ATOM 1C4C    CPA     0.12 !                  C4A   \   |   /  1C1D
+ATOM 1C1D    CPA     0.12 !                 /       \  |  /       \
+ATOM 1C2D    CPB    -0.06 !                /         \ | /         \
+ATOM 1C3D    CPB    -0.06 !        1HB--1CHB          1FE(2+)      CHD--1HD
+ATOM 1C4D    CPA     0.12 !                \         / | \         /
+GROUP                     !                 \       /  |  \       /
+ATOM 1CHA    CPM    -0.10 !                 1C1B   /   |   \  1C4C        1HAC
+ATOM 1HA     HA      0.10 !  1HMB1\         /   \ /  3-HSD  \ /   \       /
+GROUP                     !  1HMB2-1CMB--1C2B   1NB  (3NE2) 1NC   1C3C-1CAC   1HBC1
+ATOM 1CHB    CPM    -0.10 !  1HMB3/        |     |           |     |     \\  /
+ATOM 1HB     HA      0.10 !                |     |           |     |     1CBC
+GROUP                     !              1C3B--1C4B         1C1C--1C2C       \
+ATOM 1CHC    CPM    -0.10 !                |       \__1CHC__/       |         1HBC2
+ATOM 1HC     HA      0.10 !              1CAB          |          1CMC--1HMC3
+GROUP                     !              //  \        1HC         /  | 
+ATOM 1CHD    CPM    -0.10 !            1CBB  1HAB            1HMC1  1HMC2
+ATOM 1HD     HA      0.10 !            /   \
+GROUP                     !        1HBB1  1HBB2
+ATOM 2ND1    NR1    -0.40 !
+ATOM 2HD1    H       0.42 !
+ATOM 2CG     CPH1   -0.09 !                2HD1      2HE1   
+ATOM 2CB     CT2    -0.11 !                  |       /      
+ATOM 2HB1    HA2     0.09 !          2HB1   2ND1--2CE1      
+ATOM 2HB2    HA2     0.09 !           |    /       ||       
+GROUP                     !     -----2CB--2CG      ||       
+ATOM 2NE2    NR2    -0.70 !           |    \\      ||       
+ATOM 2CD2    CPH1    0.22 !          2HB2   2CD2--2NE2      
+ATOM 2HD2    HR3     0.10 !                  |        \
+ATOM 2CE1    CPH2    0.25 !                 2HD2       \
+ATOM 2HE1    HR1     0.13 !                         1-HEME(1FE)
+GROUP                     !                              \        3HD2
+ATOM 3ND1    NR1    -0.40 !                               \        |
+ATOM 3HD1    H       0.42 !                                3NE2--3CD2     3HB1
+ATOM 3CG     CPH1   -0.09 !                                 ||       \\    |
+ATOM 3CB     CT2    -0.11 !                                 ||       3CG--3CB-----
+ATOM 3HB1    HA2     0.09 !                                 ||       /     |
+ATOM 3HB2    HA2     0.09 !                                3CE1--3ND1     3HB2
+GROUP                     !                                /       |
+ATOM 3NE2    NR2    -0.70 !                              3HE1     3HD1
+ATOM 3CD2    CPH1    0.22 !
+ATOM 3HD2    HR3     0.10 !
+ATOM 3CE1    CPH2    0.25 !
+ATOM 3HE1    HR1     0.13 !
+BOND 1FE   2NE2   1FE   3NE2
+ANGL 1FE   2NE2  2CD2   1FE   2NE2  2CE1 
+ANGL 2NE2  1FE   1NA    2NE2  1FE   1NB    2NE2  1FE   1NC    2NE2  1FE   1ND
+ANGL 1FE   3NE2  3CD2   1FE   3NE2  3CE1 
+ANGL 3NE2  1FE   1NA    3NE2  1FE   1NB    3NE2  1FE   1NC    3NE2  1FE   1ND
+DELETE ANGLE 1NA 1FE 1NC  1NB 1FE 1ND 
+DIHE 2CD2  2NE2  1FE   1NA    3CD2  3NE2  1FE   1NA
+
+!ferric HemeHis
+PRES HEHI3           1.00 ! bis-HIS hematin link
+                          ! Order: 1-HEME, 2-HSD, 3-HSD
+GROUP                     ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE     FE3H    0.40 !
+ATOM 1NA     NPH    -0.17 !
+ATOM 1NB     NPH    -0.17 !
+ATOM 1NC     NPH    -0.17 !           1O2A  1O1A                1O2D  1O1D
+ATOM 1ND     NPH    -0.17 !              \\ //                     \\ //
+ATOM 1C1A    CPA     0.18 !              1CGA                      1CGD
+ATOM 1C2A    CPB    -0.05 !                |                         |
+ATOM 1C3A    CPB    -0.05 !        HBA1--1CBA--HBA2    1HA   1HBD1-1CBD-1HBD2
+ATOM 1C4A    CPA     0.18 !                |            |            |
+ATOM 1C1B    CPA     0.18 !        HAA1--1CAA-HAA2  __1CHA__ 1HAD1-1CAD-1HAD2
+ATOM 1C2B    CPB    -0.05 !                |       /        \       /
+ATOM 1C3B    CPB    -0.05 !              1C2A---C1A         1C4D--1C3D
+ATOM 1C4B    CPA     0.18 !                |     |           |     |
+ATOM 1C1C    CPA     0.18 !  1HMA1\        |     |           |     |        /1HMD1
+ATOM 1C2C    CPB    -0.05 !  1HMA2-1CMA--1C3A   1NA  (2NE2) 1ND   1C2D--1CMD-1HMD2
+ATOM 1C3C    CPB    -0.05 !  1HMA3/         \   / \  2-HSD  / \   /         \1HMD3
+ATOM 1C4C    CPA     0.18 !                  C4A   \   |   /  1C1D
+ATOM 1C1D    CPA     0.18 !                 /       \  |  /       \
+ATOM 1C2D    CPB    -0.05 !                /         \ | /         \
+ATOM 1C3D    CPB    -0.05 !        1HB--1CHB          1FE(3+)      CHD--1HD
+ATOM 1C4D    CPA     0.18 !                \         / | \         /
+GROUP                     !                 \       /  |  \       /
+ATOM 1CHA    CPM    -0.10 !                 1C1B   /   |   \  1C4C        1HAC
+ATOM 1HA     HA      0.10 !  1HMB1\         /   \ /  3-HSD  \ /   \       /
+GROUP                     !  1HMB2-1CMB--1C2B   1NB  (3NE2) 1NC   1C3C-1CAC   1HBC1
+ATOM 1CHB    CPM    -0.10 !  1HMB3/        |     |           |     |     \\  /
+ATOM 1HB     HA      0.10 !                |     |           |     |     1CBC
+GROUP                     !              1C3B--1C4B         1C1C--1C2C       \
+ATOM 1CHC    CPM    -0.10 !                |       \__1CHC__/       |         1HBC2
+ATOM 1HC     HA      0.10 !              1CAB          |          1CMC--1HMC3
+GROUP                     !              //  \        1HC         /  | 
+ATOM 1CHD    CPM    -0.10 !            1CBB  1HAB            1HMC1  1HMC2
+ATOM 1HD     HA      0.10 !            /   \
+GROUP                     !        1HBB1  1HBB2
+ATOM 2ND1    NR1    -0.32 !
+ATOM 2HD1    H       0.40 !
+ATOM 2CG     CPH1   -0.05 !                2HD1      2HE1   
+ATOM 2CB     CT2    -0.09 !                  |       /      
+ATOM 2HB1    HA2     0.09 !          2HB1   2ND1--2CE1      
+ATOM 2HB2    HA2     0.09 !           |    /       ||       
+GROUP                     !     -----2CB--2CG      ||       
+ATOM 2NE2    NR2    -0.70 !           |    \\      ||       
+ATOM 2CD2    CPH1    0.22 !          2HB2   2CD2--2NE2      
+ATOM 2HD2    HR3     0.10 !                  |        \
+ATOM 2CE1    CPH2    0.25 !                 2HD2       \
+ATOM 2HE1    HR1     0.13 !                         1-HEME(1FE)
+GROUP                     !                              \        3HD2
+ATOM 3ND1    NR1    -0.32 !                               \        |
+ATOM 3HD1    H       0.40 !                                3NE2--3CD2     3HB1
+ATOM 3CG     CPH1   -0.05 !                                 ||       \\    |
+ATOM 3CB     CT2    -0.09 !                                 ||       3CG--3CB-----
+ATOM 3HB1    HA2     0.09 !                                 ||       /     |
+ATOM 3HB2    HA2     0.09 !                                3CE1--3ND1     3HB2
+GROUP                     !                                /       |
+ATOM 3NE2    NR2    -0.70 !                              3HE1     3HD1
+ATOM 3CD2    CPH1    0.22 !
+ATOM 3HD2    HR3     0.10 !
+ATOM 3CE1    CPH2    0.25 !
+ATOM 3HE1    HR1     0.13 !
+BOND 1FE   2NE2   1FE   3NE2
+ANGL 1FE   2NE2  2CD2   1FE   2NE2  2CE1 
+ANGL 2NE2  1FE   1NA    2NE2  1FE   1NB    2NE2  1FE   1NC    2NE2  1FE   1ND
+ANGL 1FE   3NE2  3CD2   1FE   3NE2  3CE1 
+ANGL 3NE2  1FE   1NA    3NE2  1FE   1NB    3NE2  1FE   1NC    3NE2  1FE   1ND
+DELETE ANGLE 1NA 1FE 1NC  1NB 1FE 1ND 
+DIHE 2CD2  2NE2  1FE   1NA    3CD2  3NE2  1FE   1NA
+
+!ferrous HemeHis, Set 2
+PRES HEHI0           0.00 ! bis-HIS heme link using CHARMM HEME and HSD charges
+                          ! Order: 1-HEME, 2-HSD, 3-HSD
+                          ! do NOT use AUTOgenerate ANGLes DIHEdrals after this patch
+ATOM 1FE     FE2H0   0.24 !
+BOND 1FE   2NE2   1FE   3NE2
+ANGL 1FE   2NE2  2CD2   1FE   2NE2  2CE1 
+ANGL 2NE2  1FE   1NA    2NE2  1FE   1NB    2NE2  1FE   1NC    2NE2  1FE   1ND
+ANGL 1FE   3NE2  3CD2   1FE   3NE2  3CE1 
+ANGL 3NE2  1FE   1NA    3NE2  1FE   1NB    3NE2  1FE   1NC    3NE2  1FE   1ND
+DELETE ANGLE 1NA 1FE 1NC  1NB 1FE 1ND 
+DIHE 2CD2  2NE2  1FE   1NA    3CD2  3NE2  1FE   1NA
+
+END
+
+read para card flex append
+* Parameters for bis-HIS heme and non-heme iron complexes
+*
+
+ATOMS
+MASS   -1 FE2H0  55.84700 ! heme iron
+MASS   -1 FE2H   55.84700 ! heme iron
+MASS   -1 FE3H   55.84700 ! hematin iron
+MASS   -1 FE2NH1 55.84700 ! ferrous non-heme iron in his-bicarbonate system
+MASS   -1 FE3NH1 55.84700 ! ferric  non-heme iron in his-bicarbonate system
+MASS   -1 FE2NH2 55.84700 ! ferrous non-heme iron in his-only system
+MASS   -1 FE3NH2 55.84700 ! ferric  non-heme iron in his-only system
+
+BONDS
+!bis-HIS heme/hematin
+NPH    FE2H0  270.200     2.040 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE2H0   80.000     2.110 ! optimised, from all36_prot_heme: NR2  FE
+NPH    FE2H   270.200     2.040 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE2H    80.000     2.110 ! optimised, from all36_prot_heme: NR2  FE
+NPH    FE3H   270.000     2.030 ! optimised, from all36_prot_heme: NPH  FE
+NR2    FE3H    80.000     2.080 ! optimised, from all36_prot_heme: NR2  FE
+!non-heme iron with bicarbonate and histidines
+NR2    FE2NH1 140.000     1.960 ! optimised, from all36_prot_heme: NR2  FE
+OC     FE2NH1 100.000     1.995 ! optimised, from all36_prot_heme: OM   FE
+NR2    FE3NH1 140.000     1.960 ! optimised, from all36_prot_heme: NR2  FE
+OC     FE3NH1 100.000     1.890 ! optimised, from all36_prot_heme: OM   FE
+OH1    CC     230.000     1.380 ! optimised, from all36_prot:      OH1  CD
+!non-heme iron with only histidines
+NR2    FE2NH2 140.000     1.940 ! optimised, from all36_prot_heme: NR2  FE
+NR2    FE3NH2 140.000     1.870 ! optimised, from all36_prot_heme: NR2  FE
+
+ANGLES
+!bis-HIS heme/hematin
+FE2H0  NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE2H0  NR2    CPH2   20.000   138.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE2H0  NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE2H0  NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE2H0  NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+FE2H   NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE2H   NR2    CPH2   25.000   137.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE2H   NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE2H   NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE2H   NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+FE3H   NR2    CPH1   25.000   135.00 ! optimised, from all36_prot_heme: FE   NR2  CPH1
+FE3H   NR2    CPH2   25.000   137.00 ! optimised, from all36_prot_heme: FE   NR2  CPH2
+NPH    FE3H   NPH    14.390    90.00 ! taken from all36_prot_heme: NPH  FE   NPH
+FE3H   NPH    CPA    96.150   128.05 ! taken from all36_prot_heme: FE   NPH  CPA
+NR2    FE3H   NPH    65.000    90.00 ! taken from all36_prot_heme: NR2  FE   NPH
+!non-heme iron with bicarbonate and histidines
+FE2NH1 NR2    CPH1   25.000   123.70 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE2NH1 NR2    CPH2   25.000   127.60 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+OC     FE2NH1 OC      0.000   101.50 ! optimised, from all36_prot:      OC     CC     OC
+FE2NH1 OC     CC     40.000    85.00 ! optimised, from all36_cgenff:    CG2O6  OG302  CG321
+FE3NH1 NR2    CPH1   25.000   122.70 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE3NH1 NR2    CPH2   25.000   125.00 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+OC     FE3NH1 OC      0.000   101.50 ! optimised, from all36_prot:      OC     CC     OC
+FE3NH1 OC     CC     40.000    98.00 ! optimised, from all36_cgenff:    CG2O6  OG302  CG321
+H      OH1    CC     55.000   113.30 ! optimised, from all36_prot:      H      OH1    CD
+OH1    CC     OC     50.000    123.00  210.00   2.26200 ! taken from all36_prot:  OH1    CD     OB
+!non-heme iron with only histidines
+FE2NH2 NR2    CPH1   25.000   124.00 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE2NH2 NR2    CPH2   25.000   125.80 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+FE3NH2 NR2    CPH1   25.000   127.00 ! optimised, from all36_prot_heme: FE     NR2    CPH1
+FE3NH2 NR2    CPH2   25.000   124.00 ! optimised, from all36_prot_heme: FE     NR2    CPH2
+
+DIHEDRALS
+!bis-HIS heme/hematin
+NPH    FE2H0  NR2    CPH1     0.1900  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.0700  2  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.0400  3  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE2H   NR2    CPH1     0.1400  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.1000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.0700  3  180.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+NPH    FE3H   NR2    CPH1     0.5500  4    0.00 ! optimised, from all36_prot_heme: X    FE   NR2  X 
+X      FE2H0  NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+X      FE2H   NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+X      FE3H   NPH    X        0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+!non-heme iron with bicarbonate and histidines
+OC     CC     OH1    H        2.2000  2  180.00 ! optimised, from all36_prot:      H    OH1  CA   CA
+FE2NH1 OC     CC     OH1      3.0000  2  180.00 ! optimised, from all36_prot:      X    CD   OH1  X
+FE2NH1 OC     CC     OC       0.5000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NPH  X 
+FE3NH1 OC     CC     OH1      3.0000  2  180.00 ! optimised, from all36_prot:      X    CD   OH1  X
+FE3NH1 OC     CC     OC       0.0000  2  180.00 ! optimised, from all36_prot_heme: X    FE   NPH  X 
+CC     OC     FE2NH1 OC       0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+CC     OC     FE3NH1 OC       0.0000  2    0.00 ! taken from all36_prot_heme: X    FE   NPH  X
+
+IMPROPER
+!bis-HIS heme/hematin
+NPH    CPA    CPA    FE2H0  137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+NPH    CPA    CPA    FE2H   137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+NPH    CPA    CPA    FE3H   137.4000  0    0.00 ! taken from all36_prot_heme: NPH  CPA  CPA  FE
+CC     OC     OC     OH1    100.0000  0    0.00 ! added by Manoj  
+
+
+NONBONDED nbxmod  5 atom cdiel fshift vatom vdistance vfswitch -
+cutnb 14.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5
+FE2H0   0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2H    0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3H    0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2NH1  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3NH1  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE2NH2  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+FE3NH2  0.01  0.00  0.65 ! taken from all36_prot_heme: FE
+
+END
+
+RETUrn
+

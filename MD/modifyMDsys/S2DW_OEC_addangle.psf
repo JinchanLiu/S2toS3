@@ -1,0 +1,64 @@
+PSF
+
+       5 !NTITLE
+ REMARKS original generated structure x-plor psf file
+ REMARKS topology toppar_PSII_OEC.str 
+ REMARKS topology toppar_PSII_OEC_S2DW.str 
+ REMARKS topology /localdata/jcliu/toppar/top_all36_prot.rtf 
+ REMARKS segment OEC { first NONE; last NONE; auto angles dihedrals }
+
+      12 !NATOM
+       1 OEC  1    S2DW MN1  MN1    1.092000       54.9380           0
+       2 OEC  1    S2DW MN2  MN2    1.511000       54.9380           0
+       3 OEC  1    S2DW MN3  MN3    1.657000       54.9380           0
+       4 OEC  1    S2DW MN4  MN4    1.893000       54.9380           0
+       5 OEC  1    S2DW CA1  CAL    1.817000       40.0800           0
+       6 OEC  1    S2DW O1   OXO1  -0.816000       15.9990           0
+       7 OEC  1    S2DW O2   OXO2  -0.779000       15.9990           0
+       8 OEC  1    S2DW O3   OXO3  -0.793000       15.9990           0
+       9 OEC  1    S2DW O4   OXO4  -0.842000       15.9990           0
+      10 OEC  1    S2DW O5   OXO5  -0.692000       15.9990           0
+      11 OEC  1    S2DW O6   OXO6  -1.005000       15.9990           0
+      12 OEC  1    S2DW HO6  HXO6   0.339000        1.0080           0
+
+      17 !NBOND: bonds
+       1       6       1       8       1      10       2       6
+       2       7       2       8       3       7       3       8
+       3       9       3      10       4       9       4      11
+       5       6       5       7       5      10       5      11
+      11      12
+
+      35 !NTHETA: angles
+       1      10       5       1      10       3       1       8       3
+       1       8       2       1       6       5       1       6       2
+       2       8       3       2       7       5       2       7       3
+       2       6       5       3      10       5       3       9       4
+       3       7       5       4      11       5       4      11      12
+       6       5      11       6       5      10       6       5       7
+       6       2       8       6       2       7       6       1      10
+       6       1       8       7       5      11       7       5      10
+       7       3      10       7       3       9       7       3       8
+       7       2       8       8       3      10       8       3       9
+       8       1      10       9       4      11       9       3      10
+      10       5      11      12      11       5
+
+       0 !NPHI: dihedrals
+
+
+       1 !NIMPHI: impropers
+       9       4      11      12
+
+       0 !NDON: donors
+
+
+       0 !NACC: acceptors
+
+
+       0 !NNB
+
+       0       0       0       0       0       0       0       0
+       0       0       0       0
+
+       1       0 !NGRP
+       0       0       0
+
