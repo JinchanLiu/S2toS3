@@ -3,7 +3,7 @@
 %mem=60GB
 %nprocshared=12
 #p freq=(noraman,sortmodes) oniom(ub3lyp/genecp:amber=hardfirst)
-guess=read geom=(connectivity,printinputorient) iop(2/15=1)
+guess=read geom=(connectivity,printinputorient) iop(2/15=1) guess=read
 scf=maxconventionalcycles=150
 
 title Card Required

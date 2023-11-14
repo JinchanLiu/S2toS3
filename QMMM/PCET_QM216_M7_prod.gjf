@@ -3,7 +3,7 @@
 %mem=60GB
 %nprocshared=12
 #p oniom(ub3lyp/genecp:amber=hardfirst) scf=maxconventionalcycles=150
-geom=(connectivity,printinputorient) iop(2/15=1)
+geom=(connectivity,printinputorient) iop(2/15=1) guess=read
 
 title Card Required
 
